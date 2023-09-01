@@ -1,7 +1,7 @@
 # To create the image:
-#   $ docker build -t z88dk -f z88dk.Dockerfile .
+#   $ docker build -t z88dk-dev .
 # To run the container:
-#   $ docker run -v ${PWD}:/src/ -it z88dk <command>
+#   $ docker run -v ${PWD}:/src/ -it z88dk-dev <command>
 
 FROM alpine:latest
 

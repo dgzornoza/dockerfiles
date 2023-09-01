@@ -12,4 +12,4 @@ Tag
 `docker image tag z88dk-dev USER/z88dk-dev:latest`
 
 Push
-`docker image push USER/trtest:latest`
+`docker image push USER/z88dk-dev:latest`
