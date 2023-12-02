@@ -6,14 +6,14 @@
 FROM alpine:latest
 
 LABEL Version="2.2" \
-      Date="2023/06/11" \
+      Date="2023/12/02" \
       Docker_Version="24.0.2, build cb74dfc" \
       Maintainer="David Gonzalez Zornoza (https://github.com/dgzornoza)" \
       Description="Docker container with z88dk environment for visual studio dev-container"
 
 ENV Z88DK_PATH="/opt/z88dk"
 
-RUN apk add --no-cache build-base libxml2 m4 curl \
+RUN apk add --no-cache build-base libxml2 m4 curl gmp-dev gmp \
     && apk add --no-cache -t .build_deps bison flex libxml2-dev git subversion boost-dev texinfo \
 		perl-template-toolkit perl-app-cpanminus \
     && git clone --depth 1 --recursive https://github.com/z88dk/z88dk.git ${Z88DK_PATH}
