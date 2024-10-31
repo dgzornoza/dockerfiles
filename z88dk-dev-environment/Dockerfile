@@ -6,8 +6,8 @@
 FROM alpine:latest
 
 LABEL Version="2.2" \
-      Date="2023/12/02" \
-      Docker_Version="24.0.2, build cb74dfc" \
+      Date="2024/10/31" \
+      Docker_Version="27.2.0, build 3ab4256" \
       Maintainer="David Gonzalez Zornoza (https://github.com/dgzornoza)" \
       Description="Docker container with z88dk environment for visual studio dev-container"
 
