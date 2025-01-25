@@ -13,7 +13,8 @@ LABEL Version="1.0.0" \
 
 ## install packages base with gcc compiler
 RUN apk --no-cache add build-base \
-	&& apk add --no-cache -t .build_deps git subversion
+	&& apk add --no-cache -t .build_deps git subversion \
+	&& apk add nodejs npm
 
 # extra-packages
 RUN apk add nano && apk add curl
