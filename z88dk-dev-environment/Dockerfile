@@ -5,9 +5,9 @@
 
 FROM alpine:latest
 
-LABEL Version="2.2" \
-      Date="2024/10/31" \
-      Docker_Version="27.2.0, build 3ab4256" \
+LABEL Version="2.4" \
+      Date="2025/12/20" \
+      Docker_Version="29.1.2" \
       Maintainer="David Gonzalez Zornoza (https://github.com/dgzornoza)" \
       Description="Docker container with z88dk environment for visual studio dev-container"
 
@@ -32,6 +32,7 @@ RUN cd ${Z88DK_PATH} \
 	&& eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)" \
     && chmod 777 build.sh \
     && BUILD_SDCC=1 BUILD_SDCC_HTTP=1 ./build.sh \
+    && make install-clean bins-clean  \
     && apk del .build_deps
 
 ENV PATH="${Z88DK_PATH}/bin:${PATH}" \

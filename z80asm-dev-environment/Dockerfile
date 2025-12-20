@@ -2,12 +2,11 @@
 #   $ docker build -t z80asm-dev .
 # To run the container:
 #   $ docker run -v ${PWD}:/src/ -it z80asm-dev <command>
-
 FROM alpine:latest
 
-LABEL Version="1.0.0" \
-      Date="2023/09/01" \
-      Docker_Version="24.0.2, build cb74dfc" \
+LABEL Version="1.0.1" \
+      Date="2025/12/20" \
+      Docker_Version="29.1.2" \
       Maintainer="David Gonzalez Zornoza (https://github.com/dgzornoza)" \
       Description="Docker container with Z80 ASM environment for visual studio dev-container"
 
