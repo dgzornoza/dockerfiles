@@ -1,0 +1,15 @@
+{
+    "folders": [
+        {
+            "name": "z88dk-sample",
+            "path": "z88dk-sample"
+        }
+    ],
+    "settings": {
+        "eslint.workingDirectories": [
+            {
+                "directory": "z88dk-sample"
+            }
+        ]
+    }
+}

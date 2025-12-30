@@ -1,0 +1,28 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "make",
+            "problemMatcher": [],
+            "detail": "Build project",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "args": [
+                "COMPILER=-compiler=sdcc",
+                "C_OPT_FLAGS=-SO3 --opt-code-size",
+                "CREATE_SNA=-Cz\"--sna\""
+            ]
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "make clean",
+            "problemMatcher": [],
+            "detail": "Clean project files"
+        }
+    ]
+}

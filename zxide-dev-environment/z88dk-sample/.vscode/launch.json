@@ -1,0 +1,109 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "dezog",
+            "request": "launch",
+            "preLaunchTask": "Build",
+            "name": "Internal Simulator",
+            "remoteType": "zsim",
+            "zsim": {
+                "memoryModel": "ZX48K",
+                "visualMemory": true,
+                "ulaScreen": "spectrum",
+                "zxBorderWidth": 20,
+                "vsyncInterrupt": true,
+                "zxKeyboard": "spectrum",
+                "zxBeeper": true
+            },
+            "z88dkv2": [
+                {
+                    "path": "./build/z88dk-sample.source.lis",
+                    "mapFile": "./build/z88dk-sample.map",
+                    "srcDirs": []
+                }
+            ],
+            "history": {
+                "reverseDebugInstructionCount": 10000,
+                "codeCoverageEnabled": true
+            },
+            "commandsAfterLaunch": [
+                // "-rmv",
+                // "-mv 0xc000 0x100"
+            ],
+            "startAutomatically": false,
+            "rootFolder": "${workspaceFolder}",
+            "load": "./build/z88dk-sample.sna",
+            "smallValuesMaximum": 513,
+            "tmpDir": ".tmp"
+        },
+        {
+            "type": "dezog",
+            "request": "launch",
+            "preLaunchTask": "Build",
+            "name": "ZEsarUX",
+            "remoteType": "zrcp",
+            "zrcp": {
+                "port": 10000,
+                "hostname": "host.docker.internal",
+                "loadDelay": 1000
+            },
+            "z88dkv2": [
+                {
+                    "path": "./build/z88dk-sample.source.lis",
+                    "mapFile": "./build/z88dk-sample.map",
+                    "srcDirs": []
+                }
+            ],
+            "history": {
+                "reverseDebugInstructionCount": 1000000,
+                "spotCount": 10,
+                "codeCoverageEnabled": true
+            },
+            "commandsAfterLaunch": [
+                // "-rmv",
+                // "-mv 0xc000 0x100"
+            ],
+            "startAutomatically": false,
+            "rootFolder": "${workspaceFolder}",
+            "load": "./build/z88dk-sample.sna",
+            "smallValuesMaximum": 513,
+            "tmpDir": ".tmp"
+        },
+        {
+            "type": "dezog",
+            "request": "launch",
+            "preLaunchTask": "Build",
+            "name": "CSpect",
+            "remoteType": "cspect",
+            "cspect": {
+                "port": 11000,
+                "hostname": "host.docker.internal",
+            },
+            "z88dkv2": [
+                {
+                    "path": "./build/z88dk-sample.source.lis",
+                    "mapFile": "./build/z88dk-sample.map",
+                    "srcDirs": []
+                }
+            ],
+            "history": {
+                "reverseDebugInstructionCount": 1000000,
+                "spotCount": 10,
+                "codeCoverageEnabled": false // CSpect does not support code coverage
+            },
+            "commandsAfterLaunch": [
+                // "-rmv",
+                // "-mv 0xc000 0x100"
+            ],
+            "startAutomatically": false,
+            "rootFolder": "${workspaceFolder}",
+            "load": "./build/z88dk-sample.sna",
+            "smallValuesMaximum": 513,
+            "tmpDir": ".tmp"
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "zx-ide image",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "runArgs": [
+    "--name=${localWorkspaceFolderBasename}"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dgzornoza.zxide",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "editorconfig.editorconfig",
+        "mutantdino.resourcemonitor",
+        "maziac.dezog",
+        "maziac.asm-code-lens",
+        "maziac.hex-hover-converter",
+        "maziac.sna-fileviewer",
+        "maziac.z80-instruction-set",
+        "theNestruo.z80-asm-meter",
+        "ms-vscode.cpptools-extension-pack",
+        "ms-vscode.makefile-tools"
+      ]
+    }
+  }
+}

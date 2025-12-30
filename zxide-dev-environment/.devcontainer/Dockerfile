@@ -1,26 +1,33 @@
-# To create the image:
-#   $ docker build -t zxide-dev .
-# To run the container:
-#   $ docker run -v ${PWD}:/src/ -it zxide-dev <command>
-FROM alpine:latest
+# Docker file with vscode devcontainer for debug extension in container
+# this file require z88dk instalation and sjasmplus to use in debug session
+FROM mcr.microsoft.com/vscode/devcontainers/base:latest
 
-LABEL Version="1.0.0" \
-      Date="2025/12/29" \
-      Docker_Version="29.1.2" \
-      Maintainer="David Gonzalez Zornoza (https://github.com/dgzornoza)" \
-      Description="Docker container with zxide environment (z88dk, sjasmplus, pasmo) for visual studio dev-container"
-
-## Install base packages with gcc compiler
-RUN apk --no-cache add build-base \
-    && apk add --no-cache -t .build_deps git subversion \
-    && apk add nodejs npm \
-    && apk add nano curl
-
-# Environment variables
-ENV INSTALL_PATH="/opt"
+# Variables de entorno
+ENV INSTALL_PATH="/opt" 
 ENV PASMO_PATH="${INSTALL_PATH}/pasmo" \
     SJASMPLUS_PATH="${INSTALL_PATH}/sjasmplus" \
     Z88DK_PATH="${INSTALL_PATH}/z88dk"
+
+# Instalar paquetes base y dependencias de build
+# nodejs & npm is vscode devcontainer requirements
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+	nodejs \	
+    npm \	
+    git \
+    subversion \
+    nano \
+    curl \
+    libxml2-dev \
+    m4 \
+    libgmp-dev \
+    bison \
+    flex \
+    libboost-dev \
+    texinfo \
+    cpanminus \
+    perl \
+    && rm -rf /var/lib/apt/lists/*
 
 # --- INSTALL PASMO ASM ---
 COPY ./pasmo-0.5.5.tar.gz ${INSTALL_PATH}
@@ -42,9 +49,7 @@ RUN git clone --recursive -j8 https://github.com/z00m128/sjasmplus.git ${SJASMPL
     && make install
 
 # --- INSTALL Z88DK ---
-RUN apk add --no-cache libxml2 m4 gmp-dev gmp \
-    && apk add --no-cache -t .build_deps git bison flex libxml2-dev boost-dev texinfo perl-template-toolkit perl-app-cpanminus \
-    && git clone --depth 1 --recursive https://github.com/z88dk/z88dk.git ${Z88DK_PATH} \
+RUN git clone --depth 1 --recursive https://github.com/z88dk/z88dk.git ${Z88DK_PATH} \
     && cpanm -l $HOME/perl5 --no-wget local::lib Template::Plugin::YAML \
     && cd ${Z88DK_PATH} \
     && eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)" \
@@ -52,11 +57,12 @@ RUN apk add --no-cache libxml2 m4 gmp-dev gmp \
     && BUILD_SDCC=1 BUILD_SDCC_HTTP=1 ./build.sh \
     && make install-clean bins-clean
 
-# Cleanup build dependencies
-RUN apk del .build_deps
-
 # Set environment variables for PATH and ZCCCFG
 ENV PATH="${Z88DK_PATH}/bin:${PATH}" \
     ZCCCFG="${Z88DK_PATH}/lib/config/"
 
+	
+
 WORKDIR /workspaces/
+
+
