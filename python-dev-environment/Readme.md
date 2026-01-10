@@ -43,7 +43,7 @@ para usar la imagen como un devcontainer, realizar los siguientes pasos:
 
 1. descargar la plantilla `python-project-template.zip
 ` que contiene un proyecto python basico desde la ultima [release](https:/https://github.com/dgzornoza/dockerfiles/releases)
-2. descomprimir el archivo zip
+2. descomprimir el archivo zip y ponerle el nombre del proyecto deseado (El nombre de esa carpeta sera el nombre del contenedor docker)
 3. abrir la carpeta del proyecto con vscode
 4. abrir la paleta de comandos (Ctrl+Shift+P)
 5. seleccionar "Dev Containers: Reopen in Container"
