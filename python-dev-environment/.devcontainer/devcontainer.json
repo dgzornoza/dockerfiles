@@ -1,0 +1,24 @@
+{
+	"name": "python-dev-environment",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".."
+	},
+	"runArgs": [
+		"--name=${localWorkspaceFolderBasename}",
+		"--gpus=all"
+	],
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.shell.linux": "/bin/bash"
+			},
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-toolsai.jupyter",
+				"ms-azuretools.vscode-docker"
+			]
+		}
+	}
+}

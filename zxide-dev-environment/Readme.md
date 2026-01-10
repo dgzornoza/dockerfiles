@@ -1,6 +1,6 @@
 # imagen para ZxIde
 
-En esta guia se indican los pasos para crear una imagen para ZxIde con todas las herramientas necesarias.
+En esta guia se indican los pasos para crear una imagen a usar en un devcontainer para la extension ZxIde de vscode con todas las herramientas necesarias.
 Estos pasos sirven para evitar que cada contenedor crezca demasiado, instalando todas las extensiones de vscode necesarias en la imagen.
 
 Aqui se encontrara la siguiente estructura de directorios:
