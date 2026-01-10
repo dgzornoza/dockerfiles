@@ -41,37 +41,11 @@ Imagen de desarrollo para Python basada en la imagen oficial `python:3.12-slim`,
 
 para usar la imagen como un devcontainer, realizar los siguientes pasos:
 
-1. crear una carpeta con el nombre del proyecto
-2. abrir la carpeta con vscode
-3. crear una carpeta `.devcontainer` dentro del proyecto
-4. dentro de la carpeta `.devcontainer`, crear un archivo `devcontainer.json` con el siguiente contenido:
-5. crear un archivo `.devcontainer/devcontainer.json` en el proyecto con el siguiente contenido:
-
-    ```json
-    {
-        "name": "python-dev-environment",
-        "image": "dgzornoza/python-dev:latest",
-        "runArgs": [
-            "--name=${localWorkspaceFolderBasename}",
-            "--gpus=all"
-        ],
-        "customizations": {
-            "vscode": {
-                "settings": {
-                    "terminal.integrated.shell.linux": "/bin/bash"
-                },
-                "extensions": [
-                    "ms-python.python",
-                    "ms-python.vscode-pylance",
-                    "ms-toolsai.jupyter",
-                    "ms-azuretools.vscode-docker"
-                ]
-            }
-        }
-    }
-    ```
-
-6. guardar el archivo y reiniciar el contenedor desde la paleta de comandos (Ctrl+Shift+P) seleccionando "Dev Containers: Reopen in Container".
-
-7. esperar a que se inicie el contenedor y se instalen las extensiones de vscode.
-8. una vez dentro del contenedor, se habra creado un proyecto a modo de plantilla con poetry. En el archivo Readme hay instrucciones basicas. Se puede copiar la plantilla para comenzar un nuevo proyecto con otro nombre.
+1. descargar la plantilla `python-project-template.zip
+` que contiene un proyecto python basico desde la ultima [release](https:/https://github.com/dgzornoza/dockerfiles/releases)
+2. descomprimir el archivo zip
+3. abrir la carpeta del proyecto con vscode
+4. abrir la paleta de comandos (Ctrl+Shift+P)
+5. seleccionar "Dev Containers: Reopen in Container"
+6. esperar a que se inicie el contenedor
+7. comenzar a desarrollar!
