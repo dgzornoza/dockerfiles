@@ -1,0 +1,10 @@
+_a                              = $0000 ; addr, public, , , data_compiler, ./src/main.c:650
+_main                           = $004F ; addr, public, , , code_compiler, ./src/main.c:611
+_negate_odd_a                   = $0000 ; addr, public, , , code_compiler, ./src/main.c:535
+_plot                           = $0024 ; addr, public, , , code_compiler, ./src/main.c:575
+l_main_00102                    = $0054 ; addr, local, , , code_compiler, ./src/main.c:616
+l_negate_odd_a_00103            = $0023 ; addr, local, , , code_compiler, ./src/main.c:567
+l_negate_odd_a_00105            = $0003 ; addr, local, , , code_compiler, ./src/main.c:538
+l_negate_odd_a_00106            = $0020 ; addr, local, , , code_compiler, ./src/main.c:563
+l_plot_00103                    = $0047 ; addr, local, , , code_compiler, ./src/main.c:597
+l_plot_00104                    = $0049 ; addr, local, , , code_compiler, ./src/main.c:599

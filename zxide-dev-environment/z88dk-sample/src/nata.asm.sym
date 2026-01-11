@@ -1,0 +1,2 @@
+_neg_and_triple_a               = $0000 ; addr, public, , , code_user, ./src/nata.asm:8
+loop                            = $0008 ; addr, local, , , code_user, ./src/nata.asm:17

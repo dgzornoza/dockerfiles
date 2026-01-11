@@ -22,26 +22,27 @@ Debido a que algunas extensiones solo se activan cuando se detecta un proyecto d
 2. abrir la paleta de comandos (Ctrl+Shift+P)
 3. seleccionar "Dev Containers: Reopen in Container"
 4. esperar a que se cree la imagen, instalen todas las extensiones y dependencias de vscode y se inicie el contenedor
-5. cerrar vscode
-6. crear la imagen final con el comando:
+5. compilar el proyecto de ejemplo (pulsar F5)
+6. cerrar vscode
+7. crear la imagen final con el comando:
 
    ```bash
    docker commit zxide-dev-environment zxide-dev
    ```
 
-7. etiquetar la imagen con el comando:
+8. etiquetar la imagen con el comando:
 
     ```bash
     docker tag zxide-dev {docker-hub-user}/zxide-dev:latest
     ```
 
-8. subir la imagen a docker hub con el comando:
+9. subir la imagen a docker hub con el comando:
 
     ```bash
     docker push {docker-hub-user}/zxide-dev:latest
     ```
 
-9. ya se puede usar esta imagen en cualquier devcontainer, especificandola en el archivo devcontainer.json:
+10. ya se puede usar esta imagen en cualquier devcontainer, especificandola en el archivo devcontainer.json:
 
     ```json
     "image": "{docker-hub-user}/zxide-dev:latest"
